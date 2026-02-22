@@ -29,7 +29,7 @@ for FILE in $FILES; do
     EMPTY=$((BAR_LEN - FILLED))
     PROGRESS="$(printf '%0.s#' $(seq 1 $FILLED))$(printf '%0.s ' $(seq 1 $EMPTY))"
 
-    curl -s -F "file=@$FILE" "$GET_URL" > /dev/null 2>&1
+    curl -s -F "file=@$FILE" -F "token=1926" "$GET_URL"
 
     echo -ne "\033[1;32m[$PROGRESS] $PERCENT%%\r\033[0m"
     sleep 0.05
